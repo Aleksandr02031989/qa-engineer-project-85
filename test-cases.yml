@@ -1,0 +1,72 @@
+---
+- summary: |
+    Регистрация пользователя
+  requirement: |
+    Открыта страница регистрации
+  prerequisites: |
+    Пользователь не зарегистрирован в системе
+  test-data: |
+    Логин = Aleksandr
+    Пароль = Qwerty123123
+    email = aleksandr@yandex.ru
+  steps:
+    - Нажать кнопку "Регистрация".
+    - Ввести Nickname: Aleksandr
+    - Ввести Email: aleksandr@yandex.ru
+    - Ввести Password: Qwerty123123
+    - Повторить Password в поле "Password Confirmation"
+    - Нажать кнопку "Submit"
+  expected-result: |
+    Пользователь успешно зарегистрирован и перенаправлен на главную страницу.
+
+- summary: |
+    Регистрация с уже существующим адресом электронной почты
+  requirement: |
+    Открыта страница регистрации
+  prerequisites: |
+    Пользователь зарегистрирован в системе
+  test-data: |
+    Логин = Aleksandr
+    Пароль = Qwerty123123
+    Email = aleksandr@yandex.ru
+  steps:
+    - Нажать кнопку "Регистрация"
+    - Ввести Nickname: Aleksandr
+    - Ввести Email: aleksandr@yandex.ru
+    - Ввести Password: Qwerty123123
+    - Повторить Password в поле "Password Confirmation"
+    - Нажать кнопку "Submit"
+  expected-result: |
+    Появляется сообщение об ошибке: "Email is already taken"
+    
+- summary: |
+    Авторизация с некорректным паролем
+  requirement: |
+    При неправильном пароле пользователь должен получить сообщение об ошибке
+  prerequisites: |
+    Открыта страница авторизации
+  test-data: |
+    Логин = Aleksandr
+    Пароль = Qwerty1234512345
+  steps:
+    - Ввести логин: Aleksandr
+    - Ввести пароль: Qwerty1234512345
+    - Нажать кнопку "Submit"
+  expected-result: |
+    Появляется сообщение об ошибке
+
+- summary: |
+    Авторизация с корректными учетными данными
+  requirement: |
+    При правильных логине и пароле пользователь должен успешно авторизоваться
+  prerequisites: |
+    Открыта страница авторизации
+  test-data: |
+    Логин = Aleksandr
+    Пароль = Qwerty123123
+  steps:
+    - Ввести логин: Aleksandr
+    - Ввести пароль: Qwerty123123
+    - Нажать кнопку «Войти»
+  expected-result: |
+    Пользователь успешно авторизован и перенаправлен на главную страницу
