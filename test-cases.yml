@@ -70,3 +70,54 @@
     - Нажать кнопку «Войти»
   expected-result: |
     Пользователь успешно авторизован и перенаправлен на главную страницу
+
+- summary: |
+    Cоздание игры с другом
+  requirement: |
+    При нажатии кнопки "Greate battle" игра начинается
+  prerequisites: |
+    Открыта главная страница сайта
+  test-data: |
+    Email = aleksandr@yandex.ru
+    Пароль = Qwerty123123
+  steps:
+    - Ввести email aleksandr@yandex.ru
+    - Ввести пароль: Qwerty123123
+    - Нажать кнопку "Submit"
+    - Нажать кнопку "GREATE A GAME"
+    - В режиме выбора соперника, выбрать "With a friend"
+    - Нажать на кнопку "Greate battle"
+  expected-result: |
+    Успешное создание игры с другом
+    
+- summary: |
+    Создание игры без регистрации
+  requirement: |
+    Пользователь должен иметь возможность создать игру без регистрации
+  prerequisites: |
+    Открыта главная страница сайта
+  test-data: |
+    no-data
+  steps:
+    - Нажать на кнопку "TRY SIMPLE BATTLE"
+  expected-result: |
+    Успешное создание игры 
+     
+- summary: |
+    Cоздание игры с ботом
+  requirement: |
+    При нажатии кнопки "Greate battle" игра начинается
+  prerequisites: |
+    Открыта главная страница сайта
+  test-data: |
+    Email = aleksandr@yandex.ru
+    Пароль = Qwerty123123
+  steps:
+    - Ввести email aleksandr@yandex.ru
+    - Ввести пароль: Qwerty123123
+    - Нажать кнопку "Submit"
+    - Нажать кнопку "GREATE A GAME"
+    - В режиме выбора соперника, выбрать "With a bot"
+    - Нажать на кнопку "Greate battle"
+  expected-result: |
+    Успешное создание игры с ботом
