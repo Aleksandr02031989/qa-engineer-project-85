@@ -11,9 +11,9 @@
     email = aleksandr@yandex.ru
   steps:
     - Нажать кнопку "Регистрация".
-    - Ввести Nickname: Aleksandr
-    - Ввести Email: aleksandr@yandex.ru
-    - Ввести Password: Qwerty123123
+    - Ввести Nickname Aleksandr
+    - Ввести Email aleksandr@yandex.ru
+    - Ввести Password Qwerty123123
     - Повторить Password в поле "Password Confirmation"
     - Нажать кнопку "Submit"
   expected-result: |
@@ -31,9 +31,9 @@
     Email = aleksandr@yandex.ru
   steps:
     - Нажать кнопку "Регистрация"
-    - Ввести Nickname: Aleksandr
-    - Ввести Email: aleksandr@yandex.ru
-    - Ввести Password: Qwerty123123
+    - Ввести Nickname Aleksandr
+    - Ввести Email aleksandr@yandex.ru
+    - Ввести Password Qwerty123123
     - Повторить Password в поле "Password Confirmation"
     - Нажать кнопку "Submit"
   expected-result: |
@@ -49,8 +49,8 @@
     Логин = Aleksandr
     Пароль = Qwerty1234512345
   steps:
-    - Ввести логин: Aleksandr
-    - Ввести пароль: Qwerty1234512345
+    - Ввести логин Aleksandr
+    - Ввести пароль Qwerty1234512345
     - Нажать кнопку "Submit"
   expected-result: |
     Появляется сообщение об ошибке
@@ -65,8 +65,8 @@
     Логин = Aleksandr
     Пароль = Qwerty123123
   steps:
-    - Ввести логин: Aleksandr
-    - Ввести пароль: Qwerty123123
+    - Ввести логин Aleksandr
+    - Ввести пароль Qwerty123123
     - Нажать кнопку «Войти»
   expected-result: |
     Пользователь успешно авторизован и перенаправлен на главную страницу
@@ -82,7 +82,7 @@
     Пароль = Qwerty123123
   steps:
     - Ввести email aleksandr@yandex.ru
-    - Ввести пароль: Qwerty123123
+    - Ввести пароль Qwerty123123
     - Нажать кнопку "Submit"
     - Нажать кнопку "GREATE A GAME"
     - В режиме выбора соперника, выбрать "With a friend"
@@ -115,7 +115,7 @@
     Пароль = Qwerty123123
   steps:
     - Ввести email aleksandr@yandex.ru
-    - Ввести пароль: Qwerty123123
+    - Ввести пароль Qwerty123123
     - Нажать кнопку "Submit"
     - Нажать кнопку "GREATE A GAME"
     - В режиме выбора соперника, выбрать "With a bot"
@@ -135,7 +135,7 @@
     Новое имя = Aleks
   steps:
     - Ввести email aleksandr@yandex.ru
-    - Ввести пароль: Qwerty123123
+    - Ввести пароль Qwerty123123
     - Нажать кнопку "Submit"
     - Нажать кнопку "Settings"
     - В форме "Your name" ввести имя "Aleks"
@@ -155,7 +155,7 @@
     Новое имя = Aleks123456789123
   steps:
     - Ввести email aleksandr@yandex.ru
-    - Ввести пароль: Qwerty123123
+    - Ввести пароль Qwerty123123
     - Нажать кнопку "Submit"
     - Нажать кнопку "Settings"
     - В форме "Your name" ввести имя "Aleks123456789123"
