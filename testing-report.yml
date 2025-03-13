@@ -7,11 +7,11 @@
     Повторная регистрация пользователя
   status: fail
 
- - summary: |
+- summary: |
      Авторизация пользователя через "discord"
   status: pass   
   
-  - summary: |
+- summary: |
      Авторизация пользователя через "github"
   status: pass  
 
