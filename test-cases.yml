@@ -6,39 +6,60 @@
   prerequisites: |
     Пользователь не зарегистрирован в системе
   test-data: |
-    Логин = Aleksandr
-    Пароль = Qwerty123123
-    email = aleksandr@yandex.ru
+    no-data
   steps:
-    - Нажать кнопку "Регистрация".
-    - Ввести Nickname Aleksandr
-    - Ввести Email aleksandr@yandex.ru
-    - Ввести Password Qwerty123123
-    - Повторить Password в поле "Password Confirmation"
     - Нажать кнопку "Submit"
   expected-result: |
     Пользователь успешно зарегистрирован и перенаправлен на главную страницу.
 
 - summary: |
-    Регистрация с уже существующим адресом электронной почты
+    Повторная регистрация пользователя
   requirement: |
     Открыта страница регистрации
   prerequisites: |
     Пользователь зарегистрирован в системе
   test-data: |
-    Логин = Aleksandr
-    Пароль = Qwerty123123
-    Email = aleksandr@yandex.ru
+     Email = aleksandr@yandex.ru
   steps:
     - Нажать кнопку "Регистрация"
-    - Ввести Nickname Aleksandr
-    - Ввести Email aleksandr@yandex.ru
-    - Ввести Password Qwerty123123
+    - Ввести Nickname
+    - Ввести Email
+    - Ввести Password
     - Повторить Password в поле "Password Confirmation"
     - Нажать кнопку "Submit"
   expected-result: |
     Появляется сообщение об ошибке: "Email is already taken"
+
+- summary: |
+    Авторизация пользователя через "discord"
+  requirement: |
+    При нажатии кнопки "Sign in with Discord" пользователь должен успешно авторизоваться
+  prerequisites: |
+    - Пользователь не авторизован.
+    - Произведен вход в свой аккаунт discord
+  test-data: |
+    no-data
+  steps:
+    - Нажать на главной странице "Sign in"
+    - Нажать на кнопку "Sign in withs discord"
+  expected-result: |
+    Пользователь успешно авторизован через "discord"
     
+- summary: |
+    Авторизация пользователя через github
+  requirement: |
+    При нажатии кнопки "Sign in with github" пользователь должен успешно авторизоваться
+  prerequisites: |
+    - Пользователь не авторизован.
+    - Произведен вход в свой аккаунт github
+  test-data: |
+    no-data
+  steps:
+    - Нажать на главной странице "Sign in"
+    - Нажать на кнопку "Sign in withs github"
+  expected-result: |
+    Пользователь успешно авторизован через github
+
 - summary: |
     Авторизация с некорректным паролем
   requirement: |
@@ -56,7 +77,7 @@
     Появляется сообщение об ошибке
 
 - summary: |
-    Авторизация с корректными учетными данными
+    Успешная авторизация пользователя
   requirement: |
     При правильных логине и пароле пользователь должен успешно авторизоваться
   prerequisites: |
@@ -65,34 +86,42 @@
     Логин = Aleksandr
     Пароль = Qwerty123123
   steps:
-    - Ввести логин Aleksandr
-    - Ввести пароль Qwerty123123
+    - Ввести логин
+    - Ввести пароль
     - Нажать кнопку «Войти»
   expected-result: |
     Пользователь успешно авторизован и перенаправлен на главную страницу
 
 - summary: |
-    Проверка успешное создание игры с другом
+    Проверка успешного создания игры с другом.
   requirement: |
-    При нажатии кнопки "Create battle" игра с другом должна успешно начаться
+    При нажатии кнопки "Create battle" игра с другом должна успешно начаться.
   prerequisites: |
-    Пользователь авторизован
+    - Пользователь 1 авторизован.
+    - Пользователь 2 авторизован.
   test-data: |
-    Email = aleksandr@yandex.ru
-    Пароль = Qwerty123123
+    - Email пользователя 1 = aleksandr@yandex.ru
+    - Пароль пользователя 1 = Qwerty123123
+    - Email пользователя 2 = friend@yandex.ru
+    - Пароль пользователя 2 = Friend123123
   steps:
-    - Ввести email aleksandr@yandex.ru
-    - Ввести пароль Qwerty123123
-    - Нажать кнопку "Submit"
-    - Нажать кнопку "GREATE A GAME"
-    - В режиме выбора соперника, выбрать "With a friend"
-    - В форме "Choose opponent" выбрать друга из выпадающего списка
-    - Нажать на кнопку "Greate invite"
+    ### Шаги для пользователя 1:
+    - На главной странице нажать кнопку "CREATE A GAME".
+    - В режиме выбора соперника выбрать "With a friend".
+    - В форме "Choose opponent" выбрать пользователя 2 (friend@yandex.ru) из выпадающего списка.
+    - Нажать кнопку "Create invite".
+    ### Шаги для пользователя 2:
+    - На главной странице принять инвайт от пользователя 1.
+    - Нажать кнопку "Accept invite".
   expected-result: |
-    Игра с другом запущена
+    - Игра с другом успешно создана.
+    - Оба пользователя перенаправлены на игровую страницу.
+  postconditions: |
+    - Игра запущена.
+    - Оба пользователя находятся на игровой странице.
     
 - summary: |
-    Проверка возможности создания игры без регистрации
+    Проверка создания игры без регистрации
   requirement: |
     Пользователь должен иметь возможность создать игру без регистрации
   prerequisites: |
@@ -111,12 +140,8 @@
   prerequisites: |
     Пользователь авторизован в системе
   test-data: |
-    Email = aleksandr@yandex.ru
-    Пароль = Qwerty123123
+    no-data
   steps:
-    - Ввести email aleksandr@yandex.ru
-    - Ввести пароль Qwerty123123
-    - Нажать кнопку "Submit"
     - Нажать кнопку "GREATE A GAME"
     - В режиме выбора соперника, выбрать "With a bot"
     - Нажать на кнопку "Greate battle"
@@ -130,13 +155,8 @@
   prerequisites: |
     Пользователь авторизован в системе
   test-data: |
-    Email = aleksandr@yandex.ru
-    Пароль = Qwerty123123
-    Новое имя = Aleks
+    no-data
   steps:
-    - Ввести email aleksandr@yandex.ru
-    - Ввести пароль Qwerty123123
-    - Нажать кнопку "Submit"
     - Нажать кнопку "Settings"
     - В форме "Your name" ввести имя "Aleks"
     - Нажать на кнопку "Save"
@@ -144,35 +164,16 @@
     Имя в профиле успешно изменено на "Aleks"
 
 - summary: |
-    Проверка невозможности изменения имени в профиле, если имя превышает 16 символов
+    Проверка изменения имени в профиле более 16 символов
   requirement: |
     истема должна отображать ошибку, если пользователь пытается сохранить имя длиннее 16 символов
   prerequisites: |
     Пользователь авторизован в системе
   test-data: |
-    Email = aleksandr@yandex.ru
-    Пароль = Qwerty123123
-    Новое имя = Aleks123456789123
+    no-data
   steps:
-    - Ввести email aleksandr@yandex.ru
-    - Ввести пароль Qwerty123123
-    - Нажать кнопку "Submit"
     - Нажать кнопку "Settings"
     - В форме "Your name" ввести имя "Aleks123456789123"
     - Нажать на кнопку "Save"
   expected-result: |
     Система отображает сообщение об ошибке: "Should be 16 character(s) or less"
-    
-- summary: |
-    Авторизация пользователя через "discord"
-  requirement: |
-    При нажатии кнопки "Sign in with Discord" пользователь должен успешно авторизоваться
-  prerequisites: |
-    Пользователь не авторизован
-  test-data: |
-    no-data
-  steps:
-    - Нажать на главной странице "Sign in"
-    - Нажать на кнопку "Sign in with sidcord"
-  expected-result: |
-    Пользователь успешно авторизован через "discord"
